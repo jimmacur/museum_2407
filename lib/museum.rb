@@ -5,7 +5,6 @@ class Museum
         @name = name
         @exhibits = []
         @patrons = []
-        @ticket_lottery_contestants = []
     end
 
     def admit(patron)
@@ -17,13 +16,9 @@ class Museum
     end
 
     def recommend_exhibits(patron)
-        recommended = []
-        @exhibits.each do |exhibit|
-            if patron.interests.include? exhibit.name
-            recommended << exhibit
-            end
+        @exhibits.find_all do |exhibit|
+          patron.interests.include?(exhibit.name)
         end
-        recommended
     end
 
     def patrons_by_exhibit_interest

@@ -54,6 +54,7 @@ RSpec.describe Museum do
             @dmns.add_exhibit(@imax)
 
             expect(@dmns.recommend_exhibits(@patron_1)).to eq [@gems_and_minerals, @dead_sea_scrolls]
+            expect(@dmns.recommend_exhibits(@patron_2)).to eq [@imax]
         end 
     end
 
